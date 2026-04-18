@@ -1,0 +1,20 @@
+diff --git a/node_modules/react-native-reanimated/android/CMakeLists.txt b/node_modules/react-native-reanimated/android/CMakeLists.txt
+index 3f87cab..b8d2f18 100644
+--- a/node_modules/react-native-reanimated/android/CMakeLists.txt
++++ b/node_modules/react-native-reanimated/android/CMakeLists.txt
+@@ -92,6 +92,8 @@ if(NOT ${CMAKE_BUILD_TYPE} MATCHES "Debug")
+     PROPERTY LINK_FLAGS ",--icf=safe")
+ endif()
+ 
++find_library(CPP_SHARED_LIB c++_shared)
++
+ target_link_libraries(
+   reanimated
+   log
+@@ -99,4 +101,5 @@ target_link_libraries(
+   ReactAndroid::jsi
+   fbjni::fbjni
+   android
+-  react-native-worklets::worklets)
++  react-native-worklets::worklets
++  ${CPP_SHARED_LIB})
